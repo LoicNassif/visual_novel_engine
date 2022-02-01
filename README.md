@@ -18,4 +18,4 @@ Tested on Windows10 MSVC.
 - Pixel drawing system
 - 2D text integration
 - Music/sound engine integration
-- PNG/JPEG loading support
+- Sprite support
