@@ -5,7 +5,7 @@
 void framebuffer_size_callback(GLFWwindow *window, int width, int height);
 void processInput(GLFWwindow *window);
 
-int RenderEngine::init() 
+int RenderEngine::init()
 {
     // Init the GLFW library
     if (!glfwInit()) {
@@ -35,7 +35,7 @@ int RenderEngine::init()
     glfwSetFramebufferSizeCallback(window, framebuffer_size_callback);
 
 
-    if (!gladLoadGLLoader((GLADloadproc)glfwGetProcAddress)) 
+    if (!gladLoadGLLoader((GLADloadproc)glfwGetProcAddress))
     {
         std::cout << "Failed to init GLAD" << std::endl;
         return -1;
@@ -71,4 +71,21 @@ void processInput(GLFWwindow *window)
 {
     if (glfwGetKey(window, GLFW_KEY_ESCAPE) == GLFW_PRESS)
         glfwSetWindowShouldClose(window, true);
+}
+
+bool GLLogCall(const char* function, const char* file, int line)
+{
+    while (GLenum error = glGetError())
+    {
+        std::cout << "[OpenGL ERROR]:  " << error << "\n"
+            << function << " " << file << ":" << line << "\n";
+        return false;
+    }
+    return true;
+}
+
+void GLClearError()
+{
+    while (glGetError() != GL_NO_ERROR)
+        ;
 }

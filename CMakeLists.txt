@@ -85,6 +85,10 @@ set(CMAKE_MODULE_PATH ${CMAKE_MODULE_PATH} "${CMAKE_SOURCE_DIR}/cmake/")
 # OpenGL
 find_package(OpenGL REQUIRED)
 
+# GLM
+find_package(GLM REQUIRED)
+message(STATUS "GLM included at ${GLM_INCLUDE_DIR}")
+
 # GLFW
 find_package(GLFW3 REQUIRED)
 message(STATUS "Found GLFW3 in ${GLFW3_INCLUDE_DIR}")
@@ -100,6 +104,7 @@ include_directories(
     ${OPENGL_INCLUDE_DIRS}
     "${CMAKE_SOURCE_DIR}/src"
     "${CMAKE_SOURCE_DIR}/include"
+    "${CMAKE_SOURCE_DIR}/thirdparty/glm"
 )
 link_directories(${OPENGL_LIBRARY_DIRS})
 
