@@ -93,7 +93,7 @@ message(STATUS "Found GLFW3 in ${GLFW3_INCLUDE_DIR}")
 add_library(GLAD "thirdparty/glad.c")
 
 # Put all libs into a variable
-set(LIBS glfw3 ${OPENGL_LIBRARIES} GLAD ${OPENGL_gl_LIBRARY} ${CMAKE_DL_LIBS})
+set(LIBS glfw3 ${OPENGL_LIBRARIES} ${CMAKE_SOURCE_DIR}/lib/freetype.lib GLAD ${OPENGL_gl_LIBRARY} ${CMAKE_DL_LIBS})
 
 # Define the include DIRs
 include_directories(
